@@ -14,6 +14,14 @@ opt_open_vsc=0
 opt_push=0
 opt_make_pr=0
 
+#Make sure no other open mirror PR exists
+pr_exists=`gh pr list -R Sector-Echo-13-Team/Echo-SS13 -s open -S "Mirror \#" | grep -o -m 1 -c "Mirror #[[:digit:]]*"`
+
+if [[ $pr_exists = 1 ]]
+	then
+	echo "Abort, other mirror PR already open."
+fi
+
 #Time for PR body generation
 current_time_local=`date +"%T UTC%:::z"`
 current_time_pr=`TZ="UTC": date +"%T($current_time_local) on %a %e, %b of, %Y UTC"`
@@ -52,7 +60,7 @@ git push -u origin
 git pull https://github.com/shiptest-ss13/Shiptest master
 
 
-#Optional, open VSC to the repo so you can do stuff, substitute this with another editor if applicable.
+#Optional, open VSC to the repo so you can do stuff
 if [[ $opt_open_vsc = 1 ]]
     then
     code .
