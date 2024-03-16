@@ -73,7 +73,7 @@ if [[ $opt_push = 1 ]]
 
         latest_merged_index=`gh pr list -R Sector-Echo-13-Team/Echo-SS13 -s merged -S "Mirror \#" | grep -m 1 "Mirror #[[:digit:]]*" | grep -o "[[:digit:]]*" | head -1`
 
-        gh pr create -R Sector-Echo-13-Team/Echo-SS13 -t "Shiptest Mirror #$new_pr_num" -b "Partially automated Mirror PR script provided by Ms-Mee, run at $current_time_pr
+        gh pr create -R Sector-Echo-13-Team/Echo-SS13 -t "Shiptest Mirror #$new_pr_num" -b "Partially automated Mirror PR script provided by [Ms-Mee](https://github.com/Ms-Mee/echo-mirror-script), run at $current_time_pr
 
 ### Previous Mirror: [Shiptest Mirror #$latest_merged_num](https://github.com/Sector-Echo-13-Team/Echo-SS13/pull/$latest_merged_index) (PR #$latest_merged_index)
 
