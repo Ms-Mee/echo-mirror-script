@@ -55,8 +55,9 @@ fi
 git stash
 
 #Make branch with current time as part of the name based on up to date upstream master, push to your fork, pull from shiptest master 
-git switch -C "$branch_prefix$current_date_utc$branch_suffix" upstream/master
-git push -u origin
+git switch -c "$branch_prefix$current_date_utc$branch_suffix" origin/master
+git pull https://github.com/Sector-Echo-13-Team/Echo-SS13 master
+git push -u origin "$branch_prefix$current_date_utc$branch_suffix"
 git pull https://github.com/shiptest-ss13/Shiptest master
 
 
